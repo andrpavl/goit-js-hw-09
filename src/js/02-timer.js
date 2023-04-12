@@ -20,15 +20,18 @@ const options = {
         } else {
             btnStart.disabled = false;
         }
+        
     },
 };
+
 btnStart.disabled = true;
+
 flatpickr(inputDate, options);
 
 function timerCountDown() {
     let int = setInterval(() => {
         let timeDif = convertMs(inputTime - Date.now())
-        if((inputTime - Date.now()) === 0) {
+        if(timeDif.seconds <= 0 && timeDif.minutes <= 0 && timeDif.hours <= 0 && timeDif.days <= 0) {
             clearInterval(int);
         };
     days.textContent = addLeadingZero(timeDif.days)
