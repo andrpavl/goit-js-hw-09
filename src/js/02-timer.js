@@ -14,24 +14,24 @@ const options = {
     defaultDate: new Date(),
     minuteIncrement: 1,
     onClose(selectedDates) {
-        inputTime = selectedDates[0].getTime();
+        inputTime = selectedDates[0];
         if(selectedDates[0] <= Date.now()) {        
             Notiflix.Notify.failure("Please choose a date in the future");
+            btnStart.disabled = true;
         } else {
             btnStart.disabled = false;
         }
-        
     },
 };
 
-btnStart.disabled = true;
 
 flatpickr(inputDate, options);
 
 function timerCountDown() {
+    const currentDate = new Date();
     let int = setInterval(() => {
         let timeDif = convertMs(inputTime - Date.now())
-        if(timeDif.seconds <= 0 && timeDif.minutes <= 0 && timeDif.hours <= 0 && timeDif.days <= 0) {
+        if(currentDate == 0) {
             clearInterval(int);
         };
     days.textContent = addLeadingZero(timeDif.days)
@@ -66,3 +66,4 @@ function convertMs(ms) {
   
     return { days, hours, minutes, seconds };
   };
+
