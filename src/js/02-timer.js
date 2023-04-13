@@ -24,14 +24,14 @@ const options = {
     },
 };
 
+btnStart.disabled = true;
 
 flatpickr(inputDate, options);
 
 function timerCountDown() {
-    const currentDate = new Date();
     let int = setInterval(() => {
         let timeDif = convertMs(inputTime - Date.now())
-        if(currentDate == 0) {
+        if(timeDif.days == 0 && timeDif.hours == 0 && timeDif.minutes == 0 && timeDif.seconds == 0) {
             clearInterval(int);
         };
     days.textContent = addLeadingZero(timeDif.days)
