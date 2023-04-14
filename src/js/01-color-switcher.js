@@ -2,6 +2,7 @@ const startBtn = document.querySelector('button[data-start]');
 const stopBtn = document.querySelector('button[data-stop]');
 
 let startSwitch;
+stopBtn.disabled = true;
 
 startBtn.addEventListener("click", () => {
     startBtn.disabled = true;

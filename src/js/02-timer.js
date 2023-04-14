@@ -33,6 +33,7 @@ function timerCountDown() {
         let timeDif = convertMs(inputTime - Date.now())
         if(timeDif.days == 0 && timeDif.hours == 0 && timeDif.minutes == 0 && timeDif.seconds == 0) {
             clearInterval(int);
+            btnStart.disabled = true;
         };
     days.textContent = addLeadingZero(timeDif.days)
     hours.textContent = addLeadingZero(timeDif.hours)
