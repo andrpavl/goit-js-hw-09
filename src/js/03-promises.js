@@ -20,7 +20,7 @@ function createPromise(position, delay) {
 }
 
 form.addEventListener('submit', evt => {
-  evt.pereventDefault();
+  evt.preventDefault();
   const delay = Number(delayInput.value);
   const step = Number(stepInput.value);
   const amount = Number(amountInput.value);
