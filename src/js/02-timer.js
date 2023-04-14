@@ -8,6 +8,7 @@ const days = document.querySelector('[data-days]');
 const hours = document.querySelector('[data-hours]');
 const minutes = document.querySelector('[data-minutes]');
 const seconds = document.querySelector('[data-seconds]');
+let inputTime;
 const options = {
     enableTime: true,
     time_24hr: true,
@@ -15,7 +16,7 @@ const options = {
     minuteIncrement: 1,
     onClose(selectedDates) {
         inputTime = selectedDates[0];
-        if(selectedDates[0] <= Date.now()) {        
+        if(inputTime <= Date.now()) {        
             Notiflix.Notify.failure("Please choose a date in the future");
             btnStart.disabled = true;
         } else {
